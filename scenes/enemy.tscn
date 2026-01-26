@@ -324,8 +324,14 @@ shape = SubResource("CircleShape2D_4ra3w")
 [node name="damage_timer" type="Timer" parent="."]
 wait_time = 0.8
 
+[node name="direction_timer" type="Timer" parent="."]
+
+[node name="walk_timer" type="Timer" parent="."]
+
 [connection signal="body_entered" from="detection_area" to="." method="_on_detection_area_body_entered"]
 [connection signal="body_exited" from="detection_area" to="." method="_on_detection_area_body_exited"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
 [connection signal="timeout" from="damage_timer" to="." method="_on_damage_timer_timeout"]
+[connection signal="timeout" from="direction_timer" to="." method="_on_direction_timer_timeout"]
+[connection signal="timeout" from="walk_timer" to="." method="_on_walk_timer_timeout"]
