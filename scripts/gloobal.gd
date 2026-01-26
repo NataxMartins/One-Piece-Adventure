@@ -1,6 +1,7 @@
 extends Node
 
 var player_current_attack = false
+var enemy_well_placed = false
 
 var current_scene = "world"
 var transition_scene = false
