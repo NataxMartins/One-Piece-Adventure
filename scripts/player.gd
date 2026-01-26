@@ -26,7 +26,7 @@ func _physics_process(delta: float) -> void:
 	update_health()
 	move_and_slide()
 	
-	print(global.enemy_well_placed)
+	# print(global.enemy_well_placed)
 	# print(current_dir)
 	
 	
