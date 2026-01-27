@@ -25,20 +25,21 @@ func _physics_process(delta: float) -> void:
 	current_camera()
 	update_health()
 	move_and_slide()
+	death()
 	
 	# print(global.enemy_well_placed)
 	# print(current_dir)
 	
-	
-	if player_health <= 0:
+func death():
+	if player_health <= 0 and player_alive:
 		player_alive = false
 		player_health = 0
-		print("!you died!")
-		self.queue_free()
+		$AnimatedSprite2D.play("death")
+		$player_death.start()
 		
 		
 func player_movement(delta):
-	if attack_ip == false:
+	if attack_ip == false and player_alive:
 		if Input.is_action_pressed("ui_right"):
 			current_dir = "right"
 			play_anim(1)
@@ -70,7 +71,7 @@ func play_anim(movement):
 	var dir = current_dir
 	var anim = $AnimatedSprite2D
 	
-	if attack_ip == false:
+	if attack_ip == false and player_alive:
 		if dir == "right":
 			anim.flip_h = false
 			if movement == 1:
@@ -104,11 +105,12 @@ func player():
 	pass
 
 func enemy_attack():
-	if enemy_attack_range and enemy_attack_cooldown == true:
-		player_health = player_health - 20
-		enemy_attack_cooldown = false
-		$attack_cooldown.start()
-		print(player_health)
+	if player_alive:
+		if enemy_attack_range and enemy_attack_cooldown == true:
+			player_health = player_health - 20
+			enemy_attack_cooldown = false
+			$attack_cooldown.start()
+			print(player_health)
 		
 
 
@@ -228,3 +230,7 @@ func _on_hitbox_side_body_exited(body: Node2D) -> void:
 	if body.has_method("enemy"):
 		enemy_attack_range = false
 		attack_range_S = false
+
+
+func _on_player_death_timeout() -> void:
+	self.queue_free()
