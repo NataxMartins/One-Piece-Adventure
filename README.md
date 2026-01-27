@@ -67,5 +67,34 @@ Este projeto não tem foco comercial no momento, sendo utilizado como **ambiente
 scenes/      → Cenas do jogo (mapas, personagens, inimigos, UI)
 scripts/     → Scripts em GDScript
 art/      → Sprites, tilesets, sons e animações
-telesets/ → tilesets personalizáveis
+tilesets/ → tilesets personalizáveis
+```
+
+## ▶️ Como Rodar o Projeto 
+
+1. Instale a **Godot Engine 4.x**  
+   Download disponível em: https://godotengine.org
+
+2. Clone o repositório:
+   ```bash
+   git clone https://github.com/NataxMartins/One-Piece-Adventure.git
+
+
+Abra a Godot Engine
+
+Na tela inicial, clique em Import
+
+Selecione a pasta raiz do projeto (onde está o arquivo project.godot)
+
+Após importar, abra o projeto
+
+Execute a cena principal pressionando F5 ou clicando em Play
+
+
+## 🔧 Observações
+
+Certifique-se de que a cena principal está definida em:
+Project → Project Settings → Application → Run → Main Scene
+
+O projeto foi desenvolvido e testado na Godot 4.x
 
