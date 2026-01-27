@@ -10,6 +10,9 @@ var attack_range_F = false
 var attack_range_B = false
 var attack_range_S = false
 
+var shroom_attack_range_F = false
+var shroom_attack_range_B = false
+var shroom_attack_range_S = false
 
 const speed = 100
 var current_dir = "none"
@@ -23,6 +26,7 @@ func _physics_process(delta: float) -> void:
 	enemy_attack()
 	attack()
 	attack_dir()
+	shroom_attack_dir()
 	current_camera()
 	update_health()
 	move_and_slide()
@@ -183,6 +187,18 @@ func attack_dir():
 		global.enemy_well_placed = true
 	else:
 		global.enemy_well_placed = false
+		
+func shroom_attack_dir():
+	if current_dir == "right" and shroom_attack_range_S == true:
+		global.shroom_well_placed = true
+	if current_dir == "left" and shroom_attack_range_S == true:
+		global.shroom_well_placed = true
+	if current_dir == "down" and shroom_attack_range_B == true:
+		global.shroom_well_placed = true
+	if current_dir == "up" and shroom_attack_range_F == true:
+		global.shroom_well_placed = true
+	else:
+		global.shroom_well_placed = false		
 
 
 
@@ -200,6 +216,10 @@ func _on_hitbox_front_body_entered(body: Node2D) -> void:
 	if body.has_method("enemy"):
 		enemy_attack_range = true
 		attack_range_F = true
+		
+	if body.has_method("shroom"):
+		enemy_attack_range = true
+		shroom_attack_range_F = true
 
 
 
@@ -207,6 +227,10 @@ func _on_hitbox_front_body_exited(body: Node2D) -> void:
 	if body.has_method("enemy"):
 		enemy_attack_range = false
 		attack_range_F = false
+	
+	if body.has_method("shroom"):
+		enemy_attack_range = false
+		shroom_attack_range_F = false
 
 
 
@@ -214,23 +238,39 @@ func _on_hitbox_back_body_entered(body: Node2D) -> void:
 	if body.has_method("enemy"):
 		enemy_attack_range = true
 		attack_range_B = true
+	
+	if body.has_method("shroom"):
+		enemy_attack_range = true
+		shroom_attack_range_B = true
 		
 
 func _on_hitbox_back_body_exited(body: Node2D) -> void:
 	if body.has_method("enemy"):
 		enemy_attack_range = false
 		attack_range_B = false
+	
+	if body.has_method("shroom"):
+		enemy_attack_range = false
+		shroom_attack_range_B = false
 
 func _on_hitbox_side_body_entered(body: Node2D) -> void:
 	if body.has_method("enemy"):
 		enemy_attack_range = true
 		attack_range_S = true
+	
+	if body.has_method("shroom"):
+		enemy_attack_range = true
+		shroom_attack_range_S = true
 
 
 func _on_hitbox_side_body_exited(body: Node2D) -> void:
 	if body.has_method("enemy"):
 		enemy_attack_range = false
 		attack_range_S = false
+	
+	if body.has_method("shroom"):
+		enemy_attack_range = false
+		shroom_attack_range_S = false
 
 
 func _on_player_death_timeout() -> void:

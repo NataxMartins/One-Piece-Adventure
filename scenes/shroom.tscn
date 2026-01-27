@@ -1,6 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://k4ovep0vdsk7"]
+[gd_scene load_steps=11 format=3 uid="uid://k4ovep0vdsk7"]
 
 [ext_resource type="Texture2D" uid="uid://c1sixel1he7y3" path="res://art/characters/Plz_Animation.png" id="1_ho33c"]
+[ext_resource type="Script" uid="uid://wt8o4wwi8um4" path="res://scripts/shroom.gd" id="1_t1u7s"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_t1u7s"]
 atlas = ExtResource("1_ho33c")
@@ -46,9 +47,12 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_e38hn"]
-radius = 9.055386
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_t1u7s"]
+radius = 11.045361
 
 [node name="shroom" type="CharacterBody2D"]
+script = ExtResource("1_t1u7s")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_ykf8v")
@@ -56,3 +60,16 @@ sprite_frames = SubResource("SpriteFrames_ykf8v")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-1, 5)
 shape = SubResource("CircleShape2D_e38hn")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-1, 5)
+shape = SubResource("CircleShape2D_t1u7s")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.2
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

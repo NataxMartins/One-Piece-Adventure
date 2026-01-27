@@ -1,7 +1,11 @@
 extends Node
 
+var shroom_chunks = 0
+
 var player_current_attack = false
 var enemy_well_placed = false
+var shroom_well_placed = false
+
 
 var current_scene = "world"
 var transition_scene = false
