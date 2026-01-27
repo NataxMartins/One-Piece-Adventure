@@ -134,4 +134,7 @@ func _on_walk_timer_timeout() -> void:
 
 
 func _on_death_timer_timeout() -> void:
+	print("Você ganhou:" + str(global.player_exp) + " xp")
+	global.player_exp = global.player_exp + 10
+	print("Você tem:" + str(global.player_exp) + " xp")
 	self.queue_free()

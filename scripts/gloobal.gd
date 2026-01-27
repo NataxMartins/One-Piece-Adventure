@@ -1,6 +1,8 @@
 extends Node
 
 var shroom_chunks = 0
+var player_exp = 0
+var player_lvl = 1
 
 var player_current_attack = false
 var enemy_well_placed = false

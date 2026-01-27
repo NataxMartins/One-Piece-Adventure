@@ -47,9 +47,11 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_e38hn"]
+radius = 11.0
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_t1u7s"]
-radius = 11.045361
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_t1u7s"]
+radius = 12.0
+height = 26.0
 
 [node name="shroom" type="CharacterBody2D"]
 script = ExtResource("1_t1u7s")
@@ -58,14 +60,14 @@ script = ExtResource("1_t1u7s")
 sprite_frames = SubResource("SpriteFrames_ykf8v")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-1, 5)
+position = Vector2(0, 5)
 shape = SubResource("CircleShape2D_e38hn")
 
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(-1, 5)
-shape = SubResource("CircleShape2D_t1u7s")
+position = Vector2(0, 5)
+shape = SubResource("CapsuleShape2D_t1u7s")
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.2

@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="Die Insel"
+config/name="One Piece Adventure"
 run/main_scene="uid://bk33wd0o4g3tt"
 config/features=PackedStringArray("4.5", "GL Compatibility")
 config/icon="res://art/icon.svg"
