@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=4 uid="uid://bidpn0hthlp43"]
+[gd_scene load_steps=6 format=4 uid="uid://bidpn0hthlp43"]
 
 [ext_resource type="Script" uid="uid://chm5mwcjapqoe" path="res://scripts/camp.gd" id="1_c5nam"]
 [ext_resource type="TileSet" uid="uid://bbtp17i13m4re" path="res://tilesets/world.tres" id="1_wk8fr"]
 [ext_resource type="PackedScene" uid="uid://bk33wd0o4g3tt" path="res://scenes/player.tscn" id="2_nfbfs"]
+[ext_resource type="PackedScene" uid="uid://0vtmvq323yaa" path="res://scenes/campfire.tscn" id="4_nsjlq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nfbfs"]
 size = Vector2(191, 14)
@@ -52,6 +53,9 @@ position = Vector2(359, 23)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="world_exit"]
 position = Vector2(368, -7)
 shape = SubResource("RectangleShape2D_nfbfs")
+
+[node name="campfire" parent="." instance=ExtResource("4_nsjlq")]
+position = Vector2(396, 178)
 
 [connection signal="body_entered" from="world_exit" to="." method="_on_world_exit_body_entered"]
 [connection signal="body_exited" from="world_exit" to="." method="_on_world_exit_body_exited"]

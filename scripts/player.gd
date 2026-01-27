@@ -16,6 +16,7 @@ var current_dir = "none"
 
 func _ready():
 	$AnimatedSprite2D.play("idle_side")
+	$spirit_animation.visible = false
 
 func _physics_process(delta: float) -> void:
 	player_movement(delta)
