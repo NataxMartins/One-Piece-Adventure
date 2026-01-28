@@ -5,3 +5,12 @@
 *.mono/
 .vscode/
 .idea/
+# Godot
+.godot/
+.import/
+*.tmp
+
+# Editor / SO
+*.swp
+*.bak
+.DS_Store

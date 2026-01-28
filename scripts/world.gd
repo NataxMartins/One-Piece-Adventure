@@ -9,7 +9,7 @@ func _ready() -> void:
 		$player.position.x = global.player_start_posx
 		$player.position.y = global.player_start_posy
 		$load_game.visible = false
-		
+		 
 	elif global.game_first_loading == true and  global.game_has_savegame == true:
 		$player.position.x = global.player_start_posx
 		$player.position.y = global.player_start_posy
