@@ -27,7 +27,6 @@ func _process(delta: float) -> void:
 	change_scene()
 	if loading == true:
 		if Input.is_action_just_pressed("Yes"):
-			global.game_has_savegame = true
 			FileExport.load_game()
 			load_camp = true
 			$load_game.visible = false

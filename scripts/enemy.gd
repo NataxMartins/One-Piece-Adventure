@@ -33,10 +33,9 @@ func random_direction():
 		$walk_timer.wait_time = random_waiting
 		$direction_timer.start()
 		$walk_timer.start()
-		idle_walking = true
-		idle_stop = false
-		
 		random_dir = Vector2(randf_range(-10, 10), randf_range(-10, 10)).normalized()
+		idle_walking = true
+		idle_stop = false	
 		
 func idle_walk():
 	if enemy_alive:
@@ -69,7 +68,7 @@ func chasing_player():
 
 func chasing_animation():
 	if global.player_alive == true:
-		if player_chase == true:
+		if player_chase == true and enemy_alive:
 			if abs(vector_chase.x) > abs(vector_chase.y):
 				if $AnimatedSprite2D.animation != "walk_side":
 					$AnimatedSprite2D.play("walk_side")
@@ -81,9 +80,9 @@ func chasing_animation():
 				if vector_chase.y > 0:
 					if $AnimatedSprite2D.animation	 != "walk_front":
 						$AnimatedSprite2D.play("walk_front")
-					else:
-						if $AnimatedSprite2D.animation != ("walk_back"):
-							$AnimatedSprite2D.play("walk_back")
+				else:
+					if  $AnimatedSprite2D.animation != ("walk_back"):
+						$AnimatedSprite2D.play("walk_back")
 					
 	
 
@@ -119,6 +118,7 @@ func deal_with_damage():
 				can_take_damage = false
 				print("Enemy health: ", health)
 				if health <= 0:
+					velocity = Vector2.ZERO
 					$AnimatedSprite2D.play("death")
 					$death_timer.start()
 					enemy_alive = false
