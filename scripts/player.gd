@@ -4,6 +4,7 @@ var enemy_attack_range = false
 var enemy_attack_cooldown = true
 var player_health = 100
 var player_alive = true
+var death_load = false
 
 var attack_ip = false
 var attack_range_F = false
@@ -20,6 +21,7 @@ var current_dir = "none"
 func _ready():
 	$AnimatedSprite2D.play("idle_side")
 	$spirit_animation.visible = false
+	$load_game.visible = false
 
 func _physics_process(delta: float) -> void:
 	player_movement(delta)
@@ -38,9 +40,18 @@ func _physics_process(delta: float) -> void:
 func death():
 	if player_health <= 0 and player_alive:
 		player_alive = false
+		global.player_alive = false
 		player_health = 0
 		$AnimatedSprite2D.play("death")
 		$player_death.start()
+	elif death_load == true:
+		if Input.is_action_just_pressed("Yes"):
+			global.loading = true
+			FileExport.load_game()
+			get_tree().change_scene_to_file("res://scenes/camp.tscn")
+			global.player_alive = true
+			global.game_first_loading = false
+			global.finish_changescenes()
 		
 		
 func player_movement(delta):
@@ -274,4 +285,7 @@ func _on_hitbox_side_body_exited(body: Node2D) -> void:
 
 
 func _on_player_death_timeout() -> void:
-	self.queue_free()
+	$spirit_animation.visible = true
+	$load_game.visible = true
+	death_load = true
+	

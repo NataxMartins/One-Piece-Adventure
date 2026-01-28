@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-var speed = 50
+var speed = 40
 var player_chase = false
 var vector_chase = Vector2.ZERO
 var player = null
@@ -61,12 +61,14 @@ func idle_animation():
 		
 func chasing_player():
 		if player_chase and enemy_alive:
-			var distance = position.distance_to(player.position)
-			if distance > 10:
-				vector_chase = (player.position - position).normalized()
-				velocity = vector_chase * speed
+			if global.player_alive == true:
+				var distance = position.distance_to(player.position)
+				if distance > 10:
+					vector_chase = (player.position - position).normalized()
+					velocity = vector_chase * speed
 
 func chasing_animation():
+	if global.player_alive == true:
 		if player_chase == true:
 			if abs(vector_chase.x) > abs(vector_chase.y):
 				if $AnimatedSprite2D.animation != "walk_side":

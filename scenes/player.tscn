@@ -373,6 +373,14 @@ autostart = true
 [node name="player_death" type="Timer" parent="."]
 wait_time = 5.0
 
+[node name="load_game" type="TextEdit" parent="."]
+z_index = 3
+offset_left = -83.0
+offset_top = -55.0
+offset_right = 86.0
+offset_bottom = -20.0
+text = "Load game? Press Y"
+
 [connection signal="body_entered" from="hitbox_front" to="." method="_on_hitbox_front_body_entered"]
 [connection signal="body_exited" from="hitbox_front" to="." method="_on_hitbox_front_body_exited"]
 [connection signal="body_entered" from="hitbox_front/hitbox_back" to="." method="_on_hitbox_back_body_entered"]

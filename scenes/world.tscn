@@ -55,5 +55,14 @@ tile_set = ExtResource("2_k0juu")
 position = Vector2(235, 242)
 shape = SubResource("RectangleShape2D_qfnet")
 
+[node name="load_game" type="TextEdit" parent="."]
+top_level = true
+offset_left = -20.0
+offset_top = 66.0
+offset_right = 131.0
+offset_bottom = 100.0
+text = "Load Game? Y / N
+"
+
 [connection signal="body_entered" from="camp_exit" to="." method="_on_camp_exit_body_entered"]
 [connection signal="body_exited" from="camp_exit" to="." method="_on_camp_exit_body_exited"]

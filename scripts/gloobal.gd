@@ -7,6 +7,7 @@ var player_lvl = 1
 var player_current_attack = false
 var enemy_well_placed = false
 var shroom_well_placed = false
+var player_alive = true
 
 
 var current_scene = "world"
@@ -16,8 +17,12 @@ var player_exit_map_posx = 230
 var player_exit_map_posy = 215
 var player_start_posx = 10
 var player_start_posy = 85
+var player_load_posx = 378
+var player_load_posy = 172
 
 var game_first_loading = true
+var game_has_savegame = false
+var loading = false
 
 
 func finish_changescenes():

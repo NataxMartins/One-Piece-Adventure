@@ -1,8 +1,15 @@
 extends Node2D
 
-
+func _ready() -> void:
+	get_node("player")
+	if global.loading == true: 
+		$player.position = Vector2(global.player_load_posx, global.player_load_posy)
+		global.current_scene = "camp"
+		global.loading = false
+		
 func _process(delta: float) -> void:
 	change_scenes()
+	
 
 
 func _on_world_exit_body_entered(body: Node2D) -> void:

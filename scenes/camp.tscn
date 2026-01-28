@@ -12,6 +12,12 @@ size = Vector2(191, 14)
 y_sort_enabled = true
 script = ExtResource("1_c5nam")
 
+[node name="campfire" parent="." instance=ExtResource("4_nsjlq")]
+position = Vector2(396, 178)
+
+[node name="player" parent="." instance=ExtResource("2_nfbfs")]
+position = Vector2(358, 22)
+
 [node name="Map" type="Node2D" parent="."]
 y_sort_enabled = true
 
@@ -45,17 +51,11 @@ tile_set = ExtResource("1_wk8fr")
 tile_map_data = PackedByteArray("AAAFAA0AAAAAAAUAAAA=")
 tile_set = ExtResource("1_wk8fr")
 
-[node name="player" parent="." instance=ExtResource("2_nfbfs")]
-position = Vector2(359, 23)
-
 [node name="world_exit" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="world_exit"]
 position = Vector2(368, -7)
 shape = SubResource("RectangleShape2D_nfbfs")
-
-[node name="campfire" parent="." instance=ExtResource("4_nsjlq")]
-position = Vector2(396, 178)
 
 [connection signal="body_entered" from="world_exit" to="." method="_on_world_exit_body_entered"]
 [connection signal="body_exited" from="world_exit" to="." method="_on_world_exit_body_exited"]
