@@ -146,19 +146,19 @@ region = Rect2(160, 128, 32, 32)
 [sub_resource type="SpriteFrames" id="SpriteFrames_xwavj"]
 animations = [{
 "frames": [{
-"duration": 1.0,
+"duration": 1.01,
 "texture": SubResource("AtlasTexture_7p1mj")
 }, {
-"duration": 1.0,
+"duration": 1.01,
 "texture": SubResource("AtlasTexture_xwavj")
 }, {
-"duration": 1.0,
+"duration": 1.01,
 "texture": SubResource("AtlasTexture_nenq2")
 }, {
-"duration": 1.0,
+"duration": 1.01,
 "texture": SubResource("AtlasTexture_md484")
 }, {
-"duration": 1.0,
+"duration": 1.01,
 "texture": SubResource("AtlasTexture_ipns3")
 }],
 "loop": true,
@@ -329,7 +329,6 @@ wait_time = 0.8
 [node name="walk_timer" type="Timer" parent="."]
 
 [node name="death_timer" type="Timer" parent="."]
-wait_time = 2.6359999999999997
 
 [connection signal="body_entered" from="detection_area" to="." method="_on_detection_area_body_entered"]
 [connection signal="body_exited" from="detection_area" to="." method="_on_detection_area_body_exited"]

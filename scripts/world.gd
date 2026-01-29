@@ -5,22 +5,13 @@ var load_camp = false
 
 func _ready() -> void:
 	FileExport.pre_load()
-	if global.game_first_loading == true and global.game_has_savegame == false:
+	if global.game_first_loading == true:
 		$player.position.x = global.player_start_posx
-		$player.position.y = global.player_start_posy
-		$load_game.visible = false
-		 
-	elif global.game_first_loading == true and  global.game_has_savegame == true:
-		$player.position.x = global.player_start_posx
-		$player.position.y = global.player_start_posy
-		$load_game.visible = true
-		loading = true
-			
+		$player.position.y = global.player_start_posy		
 	else:
 		$player.position.x = global.player_exit_map_posx
 		$player.position.y = global.player_exit_map_posy
-		$load_game.visible = false
-		loading = false
+
 
 
 func _process(delta: float) -> void:

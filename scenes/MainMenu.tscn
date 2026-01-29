@@ -87,7 +87,7 @@ grow_horizontal = 2
 scale = Vector2(0.34, 0.34)
 texture = ExtResource("2_2wh52")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="menu"]
+[node name="button_container" type="VBoxContainer" parent="menu"]
 custom_minimum_size = Vector2(21, 200)
 layout_mode = 1
 anchors_preset = -1
@@ -103,7 +103,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 14
 
-[node name="Button" type="Button" parent="menu/VBoxContainer"]
+[node name="button_new_game" type="Button" parent="menu/button_container"]
 custom_minimum_size = Vector2(0, 20)
 layout_mode = 2
 size_flags_vertical = 3
@@ -113,7 +113,7 @@ theme_override_styles/hover = SubResource("StyleBoxEmpty_mipys")
 theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_8a8k8")
 theme_override_styles/focus = SubResource("StyleBoxTexture_8vx4p")
 
-[node name="Button2" type="Button" parent="menu/VBoxContainer"]
+[node name="button_load_game" type="Button" parent="menu/button_container"]
 custom_minimum_size = Vector2(0, 20)
 layout_mode = 2
 size_flags_vertical = 3
@@ -123,7 +123,7 @@ theme_override_styles/hover = SubResource("StyleBoxEmpty_bky6r")
 theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_hubol")
 theme_override_styles/focus = SubResource("StyleBoxTexture_l4mxc")
 
-[node name="Button3" type="Button" parent="menu/VBoxContainer"]
+[node name="button_quit" type="Button" parent="menu/button_container"]
 custom_minimum_size = Vector2(0, 20)
 layout_mode = 2
 size_flags_vertical = 3
@@ -132,3 +132,19 @@ theme_override_styles/pressed = SubResource("StyleBoxTexture_5faoh")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_8vx4p")
 theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_tdapf")
 theme_override_styles/focus = SubResource("StyleBoxTexture_ptake")
+
+[node name="start" type="Timer" parent="."]
+wait_time = 0.3
+
+[node name="load" type="Timer" parent="."]
+wait_time = 0.3
+
+[node name="quit" type="Timer" parent="."]
+wait_time = 0.3
+
+[connection signal="pressed" from="menu/button_container/button_new_game" to="." method="_on_button_new_game_pressed"]
+[connection signal="pressed" from="menu/button_container/button_load_game" to="." method="_on_button_load_game_pressed"]
+[connection signal="pressed" from="menu/button_container/button_quit" to="." method="_on_button_quit_pressed"]
+[connection signal="timeout" from="start" to="." method="_on_start_timeout"]
+[connection signal="timeout" from="load" to="." method="_on_load_timeout"]
+[connection signal="timeout" from="quit" to="." method="_on_quit_timeout"]
