@@ -23,6 +23,7 @@ var player_load_posy = 172
 var game_first_loading = true
 var game_has_savegame = false
 var loading = false
+var savegame_loaded = false
 
 
 func finish_changescenes():

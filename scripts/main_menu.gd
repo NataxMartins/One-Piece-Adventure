@@ -30,6 +30,7 @@ func _on_load_timeout() -> void:
 		get_tree().change_scene_to_file("res://scenes/camp.tscn")
 		global.player_alive = true
 		global.game_first_loading = false
+		global.savegame_loaded = true
 		global.finish_changescenes()
 	else:
 		FileExport.new_game()

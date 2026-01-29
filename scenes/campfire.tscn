@@ -1,7 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://0vtmvq323yaa"]
+[gd_scene load_steps=11 format=3 uid="uid://0vtmvq323yaa"]
 
 [ext_resource type="Script" uid="uid://wi1swe5lm66b" path="res://scripts/campfire.gd" id="1_54scn"]
 [ext_resource type="Texture2D" uid="uid://cjbhmtubfxif5" path="res://art/characters/Feuer_animation3.png" id="1_m47ar"]
+[ext_resource type="Theme" uid="uid://d2nqupvwy2or2" path="res://Themes/campfire.tres" id="3_yfrnb"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_54scn"]
 atlas = ExtResource("1_m47ar")
@@ -63,19 +64,113 @@ shape = SubResource("CapsuleShape2D_m47ar")
 position = Vector2(0, 1)
 shape = SubResource("CircleShape2D_54scn")
 
-[node name="Save_game" type="TextEdit" parent="."]
-offset_left = 49.0
-offset_top = -45.0
-offset_right = 183.0
-offset_bottom = -8.0
-text = "Save your game? Y / N"
+[node name="Save_game" type="Panel" parent="."]
+custom_minimum_size = Vector2(170, 0)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -85.0
+offset_top = -68.0
+offset_right = 85.0
+offset_bottom = -40.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("3_yfrnb")
 
-[node name="Saved" type="TextEdit" parent="."]
-offset_left = 93.0
-offset_top = -45.0
-offset_right = 197.0
-offset_bottom = -7.0
-text = "Game saved"
+[node name="MarginContainer" type="MarginContainer" parent="Save_game"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -77.0
+offset_top = -20.0
+offset_right = 77.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Save_game/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Save your game? (Y)"
+
+[node name="Game_loaded" type="Panel" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -50.0
+offset_top = -39.0
+offset_right = 50.0
+offset_bottom = -11.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("3_yfrnb")
+
+[node name="MarginContainer" type="MarginContainer" parent="Game_loaded"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -77.0
+offset_top = -20.0
+offset_right = 77.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Game_loaded/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Game loaded! "
+
+[node name="Saved" type="Panel" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -50.0
+offset_top = -97.0
+offset_right = 50.0
+offset_bottom = -69.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("3_yfrnb")
+
+[node name="MarginContainer" type="MarginContainer" parent="Saved"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -77.0
+offset_top = -20.0
+offset_right = 77.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Saved/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Game Saved!"
+
+[node name="Timer_Game_loaded" type="Timer" parent="."]
+wait_time = 2.0
+
+[node name="Timer_Saved" type="Timer" parent="."]
+wait_time = 2.0
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
+[connection signal="timeout" from="Timer_Game_loaded" to="." method="_on_timer_game_loaded_timeout"]
+[connection signal="timeout" from="Timer_Saved" to="." method="_on_timer_saved_timeout"]
