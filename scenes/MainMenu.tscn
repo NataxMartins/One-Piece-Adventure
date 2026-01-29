@@ -1,15 +1,51 @@
-[gd_scene load_steps=7 format=3 uid="uid://ceumh5xyko5ih"]
+[gd_scene load_steps=23 format=3 uid="uid://ceumh5xyko5ih"]
 
 [ext_resource type="Texture2D" uid="uid://duql6n4sqss7m" path="res://art/UI/background_game.png" id="1_0ykhv"]
+[ext_resource type="Script" uid="uid://dkcd5il1c7mc8" path="res://scripts/main_menu.gd" id="1_8a8k8"]
 [ext_resource type="Texture2D" uid="uid://8qcq5p3gwx6c" path="res://art/UI/Menu_Two_Piece.png" id="2_2wh52"]
 [ext_resource type="Texture2D" uid="uid://te23se56w5es" path="res://art/UI/button_new_pushed.png" id="3_ow34m"]
-[ext_resource type="Texture2D" uid="uid://q1xns8jedxo6" path="res://art/UI/button_new_game.png" id="4_l72w3"]
+[ext_resource type="Texture2D" uid="uid://ofphmgh28svl" path="res://art/UI/button_load_pushed.png" id="5_mipys"]
+[ext_resource type="Texture2D" uid="uid://ii8v1vn1nutf" path="res://art/UI/button_focus.png" id="5_ucygd"]
+[ext_resource type="Texture2D" uid="uid://qw17sgo4a4kg" path="res://art/UI/button_quit_pushed.png" id="7_7la6k"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8a8k8"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_826wr"]
 texture = ExtResource("3_ow34m")
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ucygd"]
-texture = ExtResource("4_l72w3")
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mipys"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8a8k8"]
+texture = ExtResource("3_ow34m")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8vx4p"]
+texture = ExtResource("5_ucygd")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7la6k"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_bky6r"]
+texture = ExtResource("5_mipys")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bky6r"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_hubol"]
+texture = ExtResource("5_mipys")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_l4mxc"]
+texture = ExtResource("5_ucygd")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2nypq"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5faoh"]
+texture = ExtResource("7_7la6k")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8vx4p"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_tdapf"]
+texture = ExtResource("7_7la6k")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ptake"]
+texture = ExtResource("5_ucygd")
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -18,6 +54,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_8a8k8")
 
 [node name="background" type="TextureRect" parent="."]
 layout_mode = 1
@@ -42,39 +79,56 @@ anchor_left = 0.536
 anchor_top = 0.47700003
 anchor_right = 0.536
 anchor_bottom = 0.47700003
-offset_left = -54.80002
-offset_top = -71.500015
-offset_right = 268.19998
-offset_bottom = 348.5
+offset_left = -59.799988
+offset_top = -79.500015
+offset_right = 277.9058
+offset_bottom = 382.26465
+grow_horizontal = 2
 scale = Vector2(0.34, 0.34)
 texture = ExtResource("2_2wh52")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="menu"]
-custom_minimum_size = Vector2(200, 0)
+custom_minimum_size = Vector2(21, 200)
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.5
 anchor_top = 0.646
 anchor_right = 0.5
 anchor_bottom = 0.646
-offset_left = -102.67648
-offset_top = -97.79062
-offset_right = 97.32352
-offset_bottom = 98.091736
+offset_left = -112.67649
+offset_top = -107.34946
+offset_right = 109.3235
+offset_bottom = 114.65054
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/separation = 11
+theme_override_constants/separation = 14
 
 [node name="Button" type="Button" parent="menu/VBoxContainer"]
+custom_minimum_size = Vector2(0, 20)
 layout_mode = 2
 size_flags_vertical = 3
+theme_override_styles/normal = SubResource("StyleBoxEmpty_8a8k8")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_826wr")
-theme_override_styles/focus = SubResource("StyleBoxTexture_ucygd")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_mipys")
+theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_8a8k8")
+theme_override_styles/focus = SubResource("StyleBoxTexture_8vx4p")
 
 [node name="Button2" type="Button" parent="menu/VBoxContainer"]
+custom_minimum_size = Vector2(0, 20)
 layout_mode = 2
 size_flags_vertical = 3
+theme_override_styles/normal = SubResource("StyleBoxEmpty_7la6k")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_bky6r")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_bky6r")
+theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_hubol")
+theme_override_styles/focus = SubResource("StyleBoxTexture_l4mxc")
 
 [node name="Button3" type="Button" parent="menu/VBoxContainer"]
+custom_minimum_size = Vector2(0, 20)
 layout_mode = 2
 size_flags_vertical = 3
+theme_override_styles/normal = SubResource("StyleBoxEmpty_2nypq")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_5faoh")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_8vx4p")
+theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_tdapf")
+theme_override_styles/focus = SubResource("StyleBoxTexture_ptake")
