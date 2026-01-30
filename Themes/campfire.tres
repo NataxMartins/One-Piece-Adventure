@@ -8,5 +8,6 @@ texture = ExtResource("2_8q8tf")
 texture_margin_top = 1.0
 
 [resource]
+Label/font_sizes/font_size = 15
 Label/fonts/font = ExtResource("1_nj350")
 Panel/styles/panel = SubResource("StyleBoxTexture_r1ola")

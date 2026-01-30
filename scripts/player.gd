@@ -1,5 +1,4 @@
 extends CharacterBody2D
-
 var enemy_attack_range = false
 var enemy_attack_cooldown = true
 var player_health = 100
@@ -52,6 +51,15 @@ func death():
 			global.player_alive = true
 			global.game_first_loading = false
 			global.finish_changescenes()
+		if Input.is_action_just_pressed("No"):
+			FileExport.new_game()
+			get_tree().change_scene_to_file("res://scenes/world.tscn")
+			
+			 
+
+
+		
+				
 		
 		
 func player_movement(delta):
