@@ -20,7 +20,7 @@ var current_dir = "none"
 func _ready():
 	$AnimatedSprite2D.play("idle_side")
 	$spirit_animation.visible = false
-	$load_game.visible = false
+	$Panel.visible = false
 
 func _physics_process(delta: float) -> void:
 	player_movement(delta)
@@ -55,12 +55,6 @@ func death():
 			FileExport.new_game()
 			get_tree().change_scene_to_file("res://scenes/world.tscn")
 			
-			 
-
-
-		
-				
-		
 		
 func player_movement(delta):
 	if attack_ip == false and player_alive:
@@ -294,6 +288,7 @@ func _on_hitbox_side_body_exited(body: Node2D) -> void:
 
 func _on_player_death_timeout() -> void:
 	$spirit_animation.visible = true
-	$load_game.visible = true
+	$Panel.visible = true
 	death_load = true
+	global.ghost_apears = true
 	

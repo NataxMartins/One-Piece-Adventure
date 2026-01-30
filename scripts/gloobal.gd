@@ -8,6 +8,7 @@ var player_current_attack = false
 var enemy_well_placed = false
 var shroom_well_placed = false
 var player_alive = true
+var ghost_apears = false
 
 
 var current_scene = "world"

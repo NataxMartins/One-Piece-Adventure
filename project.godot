@@ -19,7 +19,6 @@ config/icon="res://art/icon.svg"
 
 global="*res://scripts/gloobal.gd"
 FileExport="*res://scripts/file_export.gd"
-Enemy="*res://scripts/enemy.gd"
 
 [display]
 
