@@ -293,8 +293,8 @@ collision_mask = 3
 script = ExtResource("1_g2els")
 
 [node name="spirit_animation" type="AnimatedSprite2D" parent="."]
-position = Vector2(19, -15)
-scale = Vector2(0.328125, 0.328125)
+position = Vector2(57, -61)
+scale = Vector2(0.75390637, 0.72265637)
 sprite_frames = SubResource("SpriteFrames_31cv2")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -376,31 +376,31 @@ autostart = true
 wait_time = 5.0
 
 [node name="Panel" type="Panel" parent="."]
+top_level = true
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -52.0
-offset_top = -65.0
-offset_right = 198.0
-offset_bottom = -32.0
+offset_left = -48.75
+offset_top = -42.75
+offset_right = 48.75
+offset_bottom = -25.25
 grow_horizontal = 2
 grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 theme = ExtResource("5_tuyoq")
 script = ExtResource("6_fjrip")
 
 [node name="Label" type="Label" parent="Panel"]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
+anchors_preset = 14
 anchor_top = 0.5
-anchor_right = 0.5
+anchor_right = 1.0
 anchor_bottom = 0.5
-offset_left = -101.0
-offset_top = -8.0
-offset_right = 101.0
-offset_bottom = 8.0
+offset_top = -7.5
+offset_bottom = 7.5
 grow_horizontal = 2
 grow_vertical = 2
 horizontal_alignment = 1
@@ -412,22 +412,24 @@ anchors_preset = 14
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-offset_top = -4.0
-offset_bottom = 4.0
+offset_top = -15.5
+offset_bottom = 15.5
 grow_horizontal = 2
 grow_vertical = 2
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Panel/VBoxContainer"]
 layout_mode = 2
-size_flags_horizontal = 4
+size_flags_vertical = 4
 
-[node name="Button" type="Button" parent="Panel/VBoxContainer/HBoxContainer"]
+[node name="quit" type="Button" parent="Panel/VBoxContainer/HBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 3
+text = "quit"
 
-[node name="Button" type="Button" parent="Panel/VBoxContainer/HBoxContainer/Button"]
-layout_mode = 0
-offset_right = 8.0
-offset_bottom = 8.0
+[node name="load" type="Button" parent="Panel/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "load"
 
 [connection signal="body_entered" from="hitbox_front" to="." method="_on_hitbox_front_body_entered"]
 [connection signal="body_exited" from="hitbox_front" to="." method="_on_hitbox_front_body_exited"]
@@ -439,3 +441,5 @@ offset_bottom = 8.0
 [connection signal="timeout" from="attack_timer" to="." method="_on_attack_timer_timeout"]
 [connection signal="timeout" from="regin_timer" to="." method="_on_regin_timer_timeout"]
 [connection signal="timeout" from="player_death" to="." method="_on_player_death_timeout"]
+[connection signal="button_up" from="Panel/VBoxContainer/HBoxContainer/quit" to="Panel" method="_on_quit_button_up"]
+[connection signal="button_up" from="Panel/VBoxContainer/HBoxContainer/load" to="Panel" method="_on_load_button_up"]

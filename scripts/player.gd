@@ -30,8 +30,9 @@ func _physics_process(delta: float) -> void:
 	shroom_attack_dir()
 	current_camera()
 	update_health()
-	move_and_slide()
 	death()
+	if player_alive:
+		move_and_slide()
 	
 	# print(global.enemy_well_placed)
 	# print(current_dir)
@@ -43,17 +44,6 @@ func death():
 		player_health = 0
 		$AnimatedSprite2D.play("death")
 		$player_death.start()
-	elif death_load == true:
-		if Input.is_action_just_pressed("Yes"):
-			global.loading = true
-			FileExport.load_game()
-			get_tree().change_scene_to_file("res://scenes/camp.tscn")
-			global.player_alive = true
-			global.game_first_loading = false
-			global.finish_changescenes()
-		if Input.is_action_just_pressed("No"):
-			FileExport.new_game()
-			get_tree().change_scene_to_file("res://scenes/world.tscn")
 			
 		
 func player_movement(delta):
@@ -139,7 +129,7 @@ func _on_attack_cooldown_timeout() -> void:
 func attack():
 	var dir = current_dir
 	
-	if Input.is_action_just_pressed("attack"):
+	if Input.is_action_just_pressed("attack") and player_alive:
 		global.player_current_attack = true
 		attack_ip = true
 		if dir == "right":
@@ -288,6 +278,7 @@ func _on_hitbox_side_body_exited(body: Node2D) -> void:
 
 func _on_player_death_timeout() -> void:
 	$spirit_animation.visible = true
+	$spirit_animation.play("default")
 	$Panel.visible = true
 	death_load = true
 	global.ghost_apears = true
