@@ -1,6 +1,8 @@
 # 🎮 One Piece Adventure - RPG em Godot 
 
-Projeto de RPG desenvolvido na **Godot Engine** com o objetivo de **refinar conceitos fundamentais de desenvolvimento de jogos**, incluindo gameplay, UI, animações, transições, VFX e narrativa interativa.
+Projeto de RPG desenvolvido na **Godot Engine** com o objetivo de **refinar conceitos fundamentais de desenvolvimento de jogos**, incluindo gameplay, UI, animações, Consumo de APIs, transições, VFX e narrativa interativa.
+
+<img width="801" height="500" alt="Screenshot_1" src="https://github.com/user-attachments/assets/9af4606b-d214-459e-bb58-d8427e5bf0a3" />
 
 Este projeto não tem foco comercial no momento, sendo utilizado como **ambiente de experimentação**, aprendizado e evolução técnica.
 
@@ -14,6 +16,8 @@ Este projeto não tem foco comercial no momento, sendo utilizado como **ambiente
 - Implementar mecânicas comuns em RPGs
 - Trabalhar com **UI, animações e sistemas narrativos**
 - Evoluir o projeto de forma incremental e documentada
+
+<img width="797" height="492" alt="Screenshot_2" src="https://github.com/user-attachments/assets/477a63a2-6cd9-4130-8b39-8fe70a26d733" />
 
 ---
 
@@ -37,7 +41,6 @@ Este projeto não tem foco comercial no momento, sendo utilizado como **ambiente
 ---
 
 ## 🎲 Funcionalidades Atuais
-
 - Movimento do personagem
 - Sistema básico de inimigos
 - Mapas com tilesets
@@ -60,6 +63,7 @@ Este projeto não tem foco comercial no momento, sendo utilizado como **ambiente
 - Melhorias na IA dos inimigos
 
 ---
+
 
 ## ▶️ Como Rodar o Projeto 
 
